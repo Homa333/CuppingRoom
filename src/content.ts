@@ -21,24 +21,19 @@ export const siteInfo = {
   email: "thecuppingroom8@gmail.com",
 };
 
-export const navLinks: NavLink[] = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About us" },
-  { href: "/origins", label: "Origins" },
-  { href: "/training", label: "Training" },
-  { href: "/blogs", label: "Blogs" },
-  { href: "/contact", label: "Contact" },
+export const navLinks = [
+  // { href: "/", label: "Home" },
+  { href: "#about", label: "About" },      // section on Home
+  { href: "#training", label: "Training" },// page
+  { href: "#origins", label: "Origins" },  // page
+  { href: "#blogs", label: "Blogs" },      // page
+  { href: "#contact", label: "Contact" },  // section on Home
 ];
 
 // Home
 export const homeHero = {
-  heading: "Our Story",
-  sub:
-  "We are dedicated in coffee training and coffee production. " +
-  "Learn from industry experts, explore the art of bewing and discover the secrets of perfecting" +
-  " latte art."+
-  " Our Mission is to empower students with world-class barista skills, deep coffee knowledge and the confidence to excel in growing coffee "+
-"industry.",
+  heading: "About Us",
+  sub:"At Cupping Room Pvt. Ltd., coffee is more than just a drink: it’s a craft, a culture, and a community. We are a vertically integrated coffee company dedicated to excellence in farming, processing, roasting, and barista training. From nurturing coffee plants in the highlands to brewing the perfect cup, we ensure that every step is guided by quality, sustainability, and passion. Whether you’re a coffee enthusiast, aspiring barista, or café owner, we invite you to explore the world of coffee with us.",
   heroImage:
     "/solo-port.png",
 };
@@ -80,12 +75,10 @@ export const featureCards: FeatureCard[] = [
 // Features / About copy
 export const about = {
   farmDirect: {
-    header: "From Our Soil to Your Cup",
+    header: "Our Story",
     body: [
-      "At Cupping Room, our story begins at the source. We are committed to a farm direct and relationship based model of sourcing. " +
-        "We work personally with the farming families who grow our coffee, often visiting the farms and cooperatives ourselves to ensure quality and sustainable practices.",
-      "By trading fairly and directly with small scale producers, we ensure they receive a strong, equitable price for their harvest. " +
-        "This allows them to invest in their land, care for their families, and continue producing the exceptional coffee we are proud to share with you.",
+      "Our journey began with a simple belief: great coffee starts at the farm. Inspired by Nepal’s rich coffee-growing regions, we set out to connect local farmers, skilled roasters, and passionate coffee lovers.",
+      "Over the years, we’ve grown from a small initiative into a trusted name in the coffee industry: one that values traceability, craftsmanship, and people. Every bean we roast and every skill we teach carries the story of the hardworking farmers, dedicated trainers, and coffee lovers who make Cupping Room what it is today.",
     ],
   },
   processing: {
@@ -119,6 +112,13 @@ export const about = {
       "We highlight the distinct characteristics of each origin. " +
         "Whether it is preserving the vibrant acidity of a washed coffee or unlocking the syrupy sweetness of a natural, " +
         "our goal is to deliver a balanced and memorable roast to your cup.",
+    ],
+  },
+  origins: {
+    header: "Origins",
+    body: [
+      "Our coffee journey begins in the lush hills of Syangja and Kaski, two of Nepal’s finest coffee-growing regions. At around 1,200 meters above sea level, these highlands provide the ideal mix of rich soil, cool climate, and altitude for cultivating premium Arabica coffee. We work closely with local farmers, offering training, promoting sustainable practices, and ensuring fair trade to strengthen both the land and the community.",
+      "Each coffee cherry is hand-picked at peak ripeness, then carefully processed and roasted to bring out its unique aroma and flavor. From these fertile slopes to your cup, every sip reflects our commitment to quality, sustainability, and the people who make it possible."
     ],
   },
 };
