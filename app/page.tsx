@@ -16,13 +16,15 @@ import {
 export default function HomePage() {
   const { theme } = useTheme();
 
-  // pick a few lots for the home teaser
   const originTeasers = originLots.slice(0, 3);
 
   return (
     <main>
       {/* HERO — Our Story */}
-      <section id="about" className="relative overflow-hidden py-16 lg:py-24 scroll-mt-24">
+      <section
+        id="about"
+        className="relative overflow-hidden pt-8 pb-16 lg:pt-12 lg:pb-24 scroll-mt-24"
+      >
         <div className={`absolute inset-0 -z-10 bg-gradient-to-b ${theme.gradFrom} via-white to-white`} />
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
@@ -65,7 +67,7 @@ export default function HomePage() {
             >
               <div className="relative aspect-[4/5] w-full rounded-3xl shadow-2xl overflow-hidden">
                 <Image
-                  src={homeHero.heroImage || "/hero.jpg"} // use /hero.jpg if you moved image to public
+                  src={homeHero.heroImage || "/hero.jpg"}
                   alt="Cupping Room hero"
                   fill
                   className="object-cover"
@@ -79,79 +81,31 @@ export default function HomePage() {
       </section>
 
       {/* FARM-DIRECT STORY (part of About) */}
-<section id="story" className="py-16 lg:py-24 scroll-mt-24">
-  <div className="container grid lg:grid-cols-12 gap-8 items-start">
-    {/* Image LEFT (bigger): 7/12 on large screens */}
-    <figure className="lg:col-span-7 col-span-12">
-      <div className="relative w-full aspect-[3/2] md:aspect-[5/3] rounded-3xl overflow-hidden shadow-2xl">
-        <Image
-          src="/about/grp-farm-img.jpeg"
-          alt="Coffee farm and partner producers"
-          fill
-          className="object-cover"
-          sizes="(min-width: 1280px) 60vw, (min-width: 1024px) 55vw, 100vw"
-          priority={false}
-        />
-      </div>
-    </figure>
-
-    {/* Text RIGHT: 5/12 on large screens */}
-    <div className="lg:col-span-5 col-span-12">
-      <h2 className="text-2xl font-semibold">{about.farmDirect.header}</h2>
-      {about.farmDirect.body.map((p, i) => (
-        <p key={i} className="mt-3 text-neutral-700">{p}</p>
-      ))}
-    </div>
-  </div>
-</section>
-
-      {/* PROCESSING */}
-      {/* <section id="processing" className="py-16 lg:py-24 scroll-mt-24">
-        <div className="container">
-          <h2 className="text-2xl font-semibold">{about.processing.header}</h2>
-          <p className="mt-3 text-neutral-700">{about.processing.intro}</p>
-
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            {about.processing.methods.map((m) => (
-              <article key={m.name} className="card">
-                <h3 className="font-semibold">{m.name}</h3>
-                <p className="mt-2 text-sm text-neutral-700">{m.desc}</p>
-              </article>
-            ))}
-          </div>
-
-          <figure className="mt-8 relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow">
-            <Image
-              src="/about/processing.jpg"
-              alt="Processing at the wet/dry mill"
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
+      <section id="story" className="py-16 lg:py-24 scroll-mt-24">
+        <div className="container grid lg:grid-cols-12 gap-8 items-start">
+          {/* Image LEFT (bigger): 7/12 on large screens */}
+          <figure className="lg:col-span-7 col-span-12">
+            <div className="relative w-full aspect-[3/2] md:aspect-[5/3] rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/about/grp-farm-img.jpeg"
+                alt="Coffee farm and partner producers"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1280px) 60vw, (min-width: 1024px) 55vw, 100vw"
+                priority={false}
+              />
+            </div>
           </figure>
-        </div>
-      </section>  */}
 
-      {/* ROASTING */}
-      {/* <section id="roasting" className="py-16 lg:py-24 scroll-mt-24">
-        <div className="container grid lg:grid-cols-2 gap-8 items-start">
-          <figure className="order-last lg:order-first relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow">
-            <Image
-              src="/about/roaster.jpg"
-              alt="Small batch roasting"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-            />
-          </figure>
-          <div>
-            <h2 className="text-2xl font-semibold">{about.roasting.header}</h2>
-            {about.roasting.body.map((p, i) => (
+          {/* Text RIGHT: 5/12 on large screens */}
+          <div className="lg:col-span-5 col-span-12">
+            <h2 className="text-2xl font-semibold">{about.farmDirect.header}</h2>
+            {about.farmDirect.body.map((p, i) => (
               <p key={i} className="mt-3 text-neutral-700">{p}</p>
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* TRAINING — SHORT DESCRIPTION + BUTTON */}
       <section id="training" className="py-16 lg:py-24 scroll-mt-24">

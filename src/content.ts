@@ -19,6 +19,8 @@ export const siteInfo = {
   phoneLink: "tel:9779849800409",
   whatsapp: "https://wa.me/9779849800409",
   email: "thecuppingroom8@gmail.com",
+  logo: "/logo.png",
+  logoNoBg: "/logo-no-bg.png",
 };
 
 export const navLinks = [
@@ -26,7 +28,7 @@ export const navLinks = [
   { href: "#about", label: "About" },      // section on Home
   { href: "#training", label: "Training" },// page
   { href: "#origins", label: "Origins" },  // page
-  { href: "#blogs", label: "Blogs" },      // page
+  // { href: "#blogs", label: "Blogs" },      // page
   { href: "#contact", label: "Contact" },  // section on Home
 ];
 
