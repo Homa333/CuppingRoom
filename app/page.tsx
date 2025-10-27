@@ -1,17 +1,12 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { useTheme } from "@/components/ThemeProvider";
-import { ArrowRight, Star } from "@/components/icons";
-import {
-  homeHero,
-  about,
-  originLots,
-  training,
-  siteInfo,
-} from "@/src/content";
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useTheme } from '@/components/ThemeProvider';
+import { ArrowRight, Star } from '@/components/icons';
+import { homeHero, about, originLots, training } from '@/src/content';
+import Contact from '@/components/Contact';
 
 export default function HomePage() {
   const { theme } = useTheme();
@@ -25,7 +20,9 @@ export default function HomePage() {
         id="about"
         className="relative overflow-hidden pt-8 pb-16 lg:pt-12 lg:pb-24 scroll-mt-24"
       >
-        <div className={`absolute inset-0 -z-10 bg-gradient-to-b ${theme.gradFrom} via-white to-white`} />
+        <div
+          className={`absolute inset-0 -z-10 bg-gradient-to-b ${theme.gradFrom} via-white to-white`}
+        />
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <motion.div
@@ -40,7 +37,9 @@ export default function HomePage() {
               <p className="mt-4 text-neutral-700 max-w-xl">{homeHero.sub}</p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#processing" className="btn btn-outline">Our Processing</a>
+                <a href="/blogs/coffee-processing-methods" className="btn btn-outline">
+                  Our Processing
+                </a>
                 <Link
                   href="/blogs"
                   className={`btn ${theme.brandBg} ${theme.brandBgHover} text-white`}
@@ -67,7 +66,7 @@ export default function HomePage() {
             >
               <div className="relative aspect-[4/5] w-full rounded-3xl shadow-2xl overflow-hidden">
                 <Image
-                  src={homeHero.heroImage || "/hero.jpg"}
+                  src={homeHero.heroImage || '/hero.jpg'}
                   alt="Cupping Room hero"
                   fill
                   className="object-cover"
@@ -101,7 +100,9 @@ export default function HomePage() {
           <div className="lg:col-span-5 col-span-12">
             <h2 className="text-2xl font-semibold">{about.farmDirect.header}</h2>
             {about.farmDirect.body.map((p, i) => (
-              <p key={i} className="mt-3 text-neutral-700">{p}</p>
+              <p key={i} className="mt-3 text-neutral-700">
+                {p}
+              </p>
             ))}
           </div>
         </div>
@@ -112,12 +113,16 @@ export default function HomePage() {
         <div className="container grid lg:grid-cols-2 gap-8 items-center">
           <div>
             <h2 className="text-2xl font-semibold">Barista Training</h2>
-            <p className="mt-3 text-neutral-700">
-              {training.summary}
-            </p>
+            <p className="mt-3 text-neutral-700">{training.summary}</p>
             <ul className="mt-4 list-disc pl-5 text-sm text-neutral-700 space-y-1">
-              <li>20% theory: history, farming & varieties, processing, roasting, caffeine, espresso variables, hospitality.</li>
-              <li>80% practical: manual brew, espresso, milk steaming, latte art, hot/iced beverages, equipment handling, customer service, menu development.</li>
+              <li>
+                20% theory: history, farming & varieties, processing, roasting, caffeine, espresso
+                variables, hospitality.
+              </li>
+              <li>
+                80% practical: manual brew, espresso, milk steaming, latte art, hot/iced beverages,
+                equipment handling, customer service, menu development.
+              </li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
@@ -126,8 +131,8 @@ export default function HomePage() {
               >
                 View Training Details
               </Link>
-              <a href={`tel:${siteInfo.phone}`} className="btn btn-outline">
-                Call {siteInfo.phone}
+              <a href="#contact" className="btn btn-outline">
+                Contact us
               </a>
             </div>
           </div>
@@ -163,7 +168,9 @@ export default function HomePage() {
           <div className="lg:col-span-5 col-span-12">
             <h2 className="text-2xl font-semibold">{about.origins.header}</h2>
             {about.origins.body.map((p, i) => (
-              <p key={i} className="mt-3 text-neutral-700">{p}</p>
+              <p key={i} className="mt-3 text-neutral-700">
+                {p}
+              </p>
             ))}
 
             {/* CTA button below text */}
@@ -180,55 +187,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="py-16 lg:py-24 scroll-mt-24">
-        <div className="container grid lg:grid-cols-2 gap-10 items-start">
-          <div>
-            <h2 className="text-2xl font-semibold">Contact</h2>
-            <p className="mt-3 text-neutral-700">
-              Questions about our barista training, beans, or plantation tours? Send us a note.
-            </p>
-            <form className="mt-6 grid gap-4">
-              <div className="grid grid-cols-2 gap-4">
-                <input placeholder="Full name" className="rounded-xl border p-3" />
-                <input placeholder="Email" type="email" className="rounded-xl border p-3" />
-              </div>
-              <input placeholder="Subject" className="rounded-xl border p-3" />
-              <textarea placeholder="Message" rows={5} className="rounded-xl border p-3" />
-              <button
-                type="button"
-                className={`btn ${theme.brandBg} ${theme.brandBgHover} text-white`}
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-
-          <div className="card">
-            <h3 className="font-semibold">Visit us</h3>
-            <p className="mt-2 text-sm text-neutral-700">
-              {siteInfo.name || "Cupping Room"}, {siteInfo.addressShort}
-            </p>
-            <p className="text-sm text-neutral-700">Phone: {siteInfo.phone}</p>
-            <div className="mt-3 flex gap-3 text-sm">
-              <a href={`tel:${siteInfo.phone}`} className="underline">
-                Call
-              </a>
-              <a href={`https://wa.me/${siteInfo.whatsapp}`} className="underline">
-                WhatsApp
-              </a>
-            </div>
-            <div className="mt-4 relative h-64 w-full rounded-2xl overflow-hidden">
-                <iframe
-                title="Our location"
-                src={`https://www.google.com/maps/place/Cupping+Room/@28.220886,83.9844251,17z&z=14&output=embed`}
-                className="absolute inset-0 h-full w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
-        </div>
+      <section id="contact" className="py-12 lg:py-20 scroll-mt-24">
+        <Contact />
       </section>
     </main>
   );

@@ -1,5 +1,5 @@
-import { siteInfo, hours } from "@/src/content";
-import React from "react";
+import { siteInfo, hours } from '@/src/content';
+import React from 'react';
 
 export default function Footer() {
   return (
@@ -22,7 +22,9 @@ export default function Footer() {
           <p className="mt-2 text-neutral-600">{hours}</p>
         </div>
       </div>
-      <div className="container mt-8 text-xs text-neutral-500">© {new Date().getFullYear()} Cupping Room. All rights reserved.</div>
+      <div className="container mt-8 text-xs text-neutral-500">
+        © {new Date().getFullYear()} Cupping Room. All rights reserved.
+      </div>
     </footer>
   );
 }

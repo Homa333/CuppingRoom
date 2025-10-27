@@ -1,8 +1,7 @@
-"use client";
-import { useTheme } from "@/components/ThemeProvider";
-import { siteInfo } from "@/src/content";
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+import { useTheme } from '@/components/ThemeProvider';
+import Image from 'next/image';
+import Contact from '@/components/Contact';
 
 export default function TrainingPage() {
   const { theme } = useTheme();
@@ -13,23 +12,21 @@ export default function TrainingPage() {
         <p className="mt-2 text-neutral-700">22 days. 2 hours per session. Flexible schedules.</p>
 
         {/* CTAs */}
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a href={siteInfo.phoneLink} className={`btn ${theme.brandBg} ${theme.brandBgHover} text-white`}>Call 9849800409</a>
-          <a href={siteInfo.whatsapp} className="btn btn-outline">WhatsApp</a>
-          <Link href="/contact" className="btn btn-outline">Contact form</Link>
-        </div>
+        {/* <div className="mt-6 flex flex-wrap gap-3">
+          <Link href="/#contact" className="btn btn-outline">Contact us</Link>
+        </div> */}
         <section className="mt-8">
-  <div className="relative w-full aspect-[5/3] rounded-3xl overflow-hidden shadow-xl">
-    <Image
-      src="/grp-img.jpeg"    // place file at public/training-hero.jpg
-      alt="Barista training at Cupping Room"
-      fill
-      className="object-cover"
-      sizes="(min-width: 1280px) 1024px, (min-width: 768px) 768px, 100vw"
-      priority={false}
-    />
-  </div>
-</section>
+          <div className="relative w-full aspect-[5/3] rounded-3xl overflow-hidden shadow-xl">
+            <Image
+              src="/grp-img.jpeg" // place file at public/training-hero.jpg
+              alt="Barista training at Cupping Room"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1280px) 1024px, (min-width: 768px) 768px, 100vw"
+              priority={false}
+            />
+          </div>
+        </section>
         {/* Format */}
         <section className="mt-10">
           <h2 className="text-xl font-semibold">Format</h2>
@@ -61,7 +58,9 @@ export default function TrainingPage() {
                 <li>Customer service</li>
                 <li>Menu development</li>
               </ul>
-              <p className="mt-3 text-sm text-neutral-700">You will learn both theory and hands on practice.</p>
+              <p className="mt-3 text-sm text-neutral-700">
+                You will learn both theory and hands on practice.
+              </p>
             </div>
           </div>
         </section>
@@ -70,8 +69,8 @@ export default function TrainingPage() {
         <section className="mt-10">
           <h2 className="text-xl font-semibold">Schedule</h2>
           <p className="mt-2 text-neutral-700">
-            The course runs for <strong>22 days</strong> with <strong>2 hours per session</strong>. We offer flexible schedules
-            (Morning, Day, and Evening).
+            The course runs for <strong>22 days</strong> with <strong>2 hours per session</strong>.
+            We offer flexible schedules (Morning, Day, and Evening).
           </p>
         </section>
 
@@ -80,7 +79,8 @@ export default function TrainingPage() {
           <div className="card">
             <h3 className="font-semibold">Certification</h3>
             <p className="mt-2 text-sm text-neutral-700">
-              You will receive a <strong>recognized barista certification</strong> that boosts your resume for coffee shop jobs.
+              You will receive a <strong>recognized barista certification</strong> that boosts your
+              resume for coffee shop jobs.
             </p>
           </div>
           <div className="card">
@@ -90,31 +90,21 @@ export default function TrainingPage() {
             </p>
           </div>
         </section>
-                <section className="mt-8">
-  <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
-    <Image
-      src="/grp-cert-img.jpg"    // place file at public/training-hero.jpg
-      alt="Barista training at Cupping Room"
-      fill
-      className="object-cover"
-      sizes="(min-width: 1280px) 1024px, (min-width: 768px) 768px, 100vw"
-      priority={false}
-    />
-  </div>
-</section>
-
-        {/* Location */}
-        <section className="mt-10">
-          <h2 className="text-xl font-semibold">Location</h2>
-          <p className="mt-2 text-neutral-700">Cupping Room is located near Bhat Bhateni, New Road, Pokhara.</p>
+        <section className="mt-8">
+          <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/grp-cert-img.jpg" // place file at public/training-hero.jpg
+              alt="Barista training at Cupping Room"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1280px) 1024px, (min-width: 768px) 768px, 100vw"
+              priority={false}
+            />
+          </div>
         </section>
-
-        {/* Bottom CTAs */}
-        <div className="mt-10 flex flex-wrap gap-3">
-          <a href={siteInfo.phoneLink} className={`btn ${theme.brandBg} ${theme.brandBgHover} text-white`}>Call 9849800409</a>
-          <a href={siteInfo.whatsapp} className="btn btn-outline">WhatsApp</a>
-          <Link href="/contact" className="btn btn-outline">Contact form</Link>
-        </div>
+        <section className="py-12 lg:py-20 scroll-mt-24">
+          <Contact />
+        </section>
       </div>
     </main>
   );

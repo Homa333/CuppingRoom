@@ -1,30 +1,49 @@
-"use client";
-import { ArrowRight } from "@/components/icons";
-import { useTheme } from "@/components/ThemeProvider";
-
-const posts = [
-  { id: 1, title: "How we cup: from sample to score", excerpt: "A quick look at our cupping protocol and what the scores mean.", tag: "Barista" },
-  { id: 2, title: "Inside the honey process", excerpt: "Walking through our favorite method for bright, sweet cups.", tag: "Plantation" },
-  { id: 3, title: "Altitude and acidity", excerpt: "Why higher-grown coffees taste the way they do.", tag: "Origins" }
-];
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function BlogsPage() {
-  const { theme } = useTheme();
+  const blogDir = path.join(process.cwd(), 'src/content/blogs');
+  const files = fs.readdirSync(blogDir);
+
+  const posts = files.map(filename => {
+    const fileContent = fs.readFileSync(path.join(blogDir, filename), 'utf-8');
+    const { data } = matter(fileContent);
+    return {
+      ...data,
+      slug: filename.replace('.md', ''),
+    };
+  });
+
+  // sort by date descending
+  const sortedPosts = posts.sort(
+    (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
   return (
-    <main className="py-16 lg:py-24">
-      <div className="container">
-        <h1 className="text-3xl font-semibold tracking-tight">Blog</h1>
-        <div className="mt-8 grid md:grid-cols-3 gap-6">
-          {posts.map((p) => (
-            <article key={p.id} className="card">
-              <div className="aspect-[4/3] rounded-2xl bg-[url('https://images.unsplash.com/photo-1459257868276-5e65389e2722?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center"/>
-              <span className={`mt-4 pill ${theme.pillBg} ${theme.pillText}`}>{p.tag}</span>
-              <h3 className="mt-2 font-semibold">{p.title}</h3>
-              <p className="text-sm text-neutral-600 mt-1">{p.excerpt}</p>
-              <a href="#" className={`mt-3 link ${theme.brand}`}>Read post <ArrowRight className="h-4 w-4"/></a>
-            </article>
-          ))}
-        </div>
+    <main className="container py-16">
+      <h1 className="text-4xl font-semibold mb-10 text-center">Our Coffee Stories</h1>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        {sortedPosts.map((post: any) => (
+          <Link
+            key={post.slug}
+            href={`/blogs/${post.slug}`}
+            className="rounded-2xl overflow-hidden shadow hover:shadow-xl transition"
+          >
+            <div className="relative w-full aspect-[4/3]">
+              <Image src={post.image} alt={post.title} fill className="object-cover" />
+            </div>
+
+            <div className="p-4 bg-white">
+              <h2 className="font-semibold text-lg">{post.title}</h2>
+              <p className="text-sm text-neutral-500 mt-1">{post.date}</p>
+              <p className="text-sm text-neutral-600 mt-2">{post.excerpt}</p>
+            </div>
+          </Link>
+        ))}
       </div>
     </main>
   );
